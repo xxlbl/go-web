@@ -8,6 +8,10 @@ import (
 // HandlerFunc defines the request handler used by gee
 type HandlerFunc func(*Context)
 
+//以前缀来区分，并且支持分组的嵌套。
+//例如/post是一个分组，/post/a和/post/b可以是该分组下的子分组。
+//作用在/post分组上的中间件(middleware)，也都会作用在子分组，子分组还可以应用自己特有的中间件。
+
 // Engine implement the interface of ServeHTTP
 type (
 	RouterGroup struct {
